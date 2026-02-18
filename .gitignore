@@ -1,0 +1,17 @@
+# Ignore everything in full project s
+*
+
+# Allow README.md
+!README.md
+
+# Allow index.html
+!index.html
+
+# Allow data folder
+!data/
+
+# Allow everything inside data folder
+!data/**
+
+# Allow .gitignore
+!.gitignore
