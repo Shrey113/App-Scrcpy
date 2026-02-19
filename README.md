@@ -121,6 +121,12 @@ Because it’s:
 * Made for real usage
 
 ---
+## Sample Images
+
+<img src="data/README_file/win_android.png" alt="win_android" width="500">
+
+
+---
 
 **Built by Shrey**
 GitHub: [https://github.com/Shrey113/App-Scrcpy](https://github.com/Shrey113/App-Scrcpy)
