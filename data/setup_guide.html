@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Step-by-step setup guide for App-Scrcpy — connect your Android device to Windows in minutes.">
+    <title>Setup Guide | App-Scrcpy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="setup_guide.css">
+</head>
+
+<body>
+
+    <!-- SVG Icons -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+
+        <!-- Android Robot Logo -->
+        <symbol id="ic-android" viewBox="0 0 24 24">
+            <path fill="currentColor"
+                d="M6 18c0 .55.45 1 1 1h1v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h2v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h1c.55 0 1-.45 1-1V8H6v10zM3.5 8C2.67 8 2 8.67 2 9.5v7c0 .83.67 1.5 1.5 1.5S5 17.33 5 16.5v-7C5 8.67 4.33 8 3.5 8zm17 0c-.83 0-1.5.67-1.5 1.5v7c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-7c0-.83-.67-1.5-1.5-1.5zm-4.97-5.84l1.3-1.3c.2-.2.2-.51 0-.71-.2-.2-.51-.2-.71 0l-1.48 1.48C13.85 1.23 12.95 1 12 1c-.96 0-1.86.23-2.66.63L7.85.15c-.2-.2-.51-.2-.71 0-.2.2-.2.51 0 .71l1.31 1.31C6.97 3.26 6 5.01 6 7h12c0-1.99-.97-3.75-2.47-4.84zM10 5H9V4h1v1zm5 0h-1V4h1v1z" />
+        </symbol>
+
+        <!-- Windows Logo -->
+        <symbol id="ic-windows" viewBox="0 0 24 24">
+            <path fill="currentColor"
+                d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801" />
+        </symbol>
+
+        <!-- Stroke-based icons -->
+        <symbol id="ic-terminal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="4 17 10 11 4 5" />
+            <line x1="12" y1="19" x2="20" y2="19" />
+        </symbol>
+        <symbol id="ic-grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7" />
+            <rect x="14" y="3" width="7" height="7" />
+            <rect x="3" y="14" width="7" height="7" />
+            <rect x="14" y="14" width="7" height="7" />
+        </symbol>
+        <symbol id="ic-arrow-r" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+        </symbol>
+        <symbol id="ic-arrow-l" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 12H5M12 19l-7-7 7-7" />
+        </symbol>
+        <symbol id="ic-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12" />
+        </symbol>
+        <symbol id="ic-setup" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3" />
+            <path
+                d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z" />
+        </symbol>
+    </svg>
+
+    <div class="app" id="app">
+
+        <!-- ════════════════════════════════════════════════════════════
+             PAGE 1: SELECTION
+             ════════════════════════════════════════════════════════════ -->
+        <div class="page select-page active" id="page-select">
+            <div class="select-page__inner">
+
+                <!-- Header -->
+                <div class="select-header">
+                    <div class="select-header__badge">
+                        <svg width="14" height="14">
+                            <use href="#ic-setup" />
+                        </svg>
+                        Setup Guide
+                    </div>
+                    <h1 class="select-header__title">Choose Your Setup</h1>
+                    <p class="select-header__sub">Select your platform and mode to get started with App-Scrcpy in just a
+                        few minutes.</p>
+                </div>
+
+                <!-- Android Section -->
+                <div class="select-section">
+                    <div class="select-section__label">
+                        <svg class="section-emoji" width="16" height="16">
+                            <use href="#ic-android" />
+                        </svg>
+                        Android Device
+                    </div>
+                    <button class="select-card" data-guide="android" id="card-android">
+                        <div class="select-card__icon select-card__icon--android">
+                            <svg width="26" height="26">
+                                <use href="#ic-android" />
+                            </svg>
+                        </div>
+                        <div class="select-card__text">
+                            <div class="select-card__name">Android Setup</div>
+                            <div class="select-card__desc">5 steps · ~3 minutes · Enable streaming on your phone</div>
+                        </div>
+                        <svg class="select-card__arrow" width="18" height="18">
+                            <use href="#ic-arrow-r" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Windows Section -->
+                <div class="select-section">
+                    <div class="select-section__label">
+                        <svg class="section-emoji" width="14" height="14">
+                            <use href="#ic-windows" />
+                        </svg>
+                        Windows PC
+                    </div>
+
+                    <button class="select-card" data-guide="windows-cmd" id="card-cmd">
+                        <div class="select-card__icon select-card__icon--cmd">
+                            <svg width="24" height="24">
+                                <use href="#ic-terminal" />
+                            </svg>
+                        </div>
+                        <div class="select-card__text">
+                            <div class="select-card__name">CMD Mode</div>
+                            <div class="select-card__desc">4 steps · Command line · For power users</div>
+                        </div>
+                        <svg class="select-card__arrow" width="18" height="18">
+                            <use href="#ic-arrow-r" />
+                        </svg>
+                    </button>
+
+                    <button class="select-card" data-guide="windows-gui" id="card-gui">
+                        <div class="select-card__icon select-card__icon--gui">
+                            <svg width="24" height="24">
+                                <use href="#ic-grid" />
+                            </svg>
+                        </div>
+                        <div class="select-card__text">
+                            <div class="select-card__name">GUI Mode</div>
+                            <div class="select-card__desc">4 steps · Visual interface · For everyone</div>
+                        </div>
+                        <svg class="select-card__arrow" width="18" height="18">
+                            <use href="#ic-arrow-r" />
+                        </svg>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ════════════════════════════════════════════════════════════
+             PAGE 2: ANDROID GUIDE
+             ════════════════════════════════════════════════════════════ -->
+        <div class="page step-page guide-android" id="page-android">
+
+            <!-- Top Bar -->
+            <div class="step-topbar">
+                <div class="step-topbar__left">
+                    <button class="step-topbar__back" data-go-home>
+                        <svg width="16" height="16">
+                            <use href="#ic-arrow-l" />
+                        </svg>
+                        <span>Back</span>
+                    </button>
+                    <span class="step-topbar__title">Android Setup</span>
+                </div>
+                <div class="step-dots" id="dots-android">
+                    <button class="step-dot active" data-dot="0" aria-label="Step 1"></button>
+                    <button class="step-dot" data-dot="1" aria-label="Step 2"></button>
+                    <button class="step-dot" data-dot="2" aria-label="Step 3"></button>
+                    <button class="step-dot" data-dot="3" aria-label="Step 4"></button>
+                    <button class="step-dot" data-dot="4" aria-label="Step 5"></button>
+                </div>
+            </div>
+
+            <!-- Steps Content -->
+            <div class="step-content" id="slides-android">
+
+                <!-- Step 1 -->
+                <div class="step-slide active" data-step="0">
+                    <div class="step-left">
+                        <div class="step-left__body">
+                            <span class="step-left__tag">Step 1 of 5</span>
+                            <h2 class="step-left__title">Open the App & Tap Start</h2>
+                            <p class="step-left__desc">
+                                Open <strong>Android Stream</strong> on your phone. You'll see your IP address under
+                                <em>Connection</em> and all statuses showing <strong>Offline</strong>.
+                                Tap the big green <strong>Start</strong> button at the bottom.
+                            </p>
+
+                        </div>
+                        <div class="step-left__nav">
+                            <button class="btn btn--ghost" data-prev disabled>
+                                <svg width="16" height="16">
+                                    <use href="#ic-arrow-l" />
+                                </svg>
+                                <span>Previous</span>
+                            </button>
+                            <button class="btn btn--primary" data-next>
+                                <span>Next</span>
+                                <svg width="16" height="16">
+                                    <use href="#ic-arrow-r" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="step-right">
+                        <img class="step-right__img" src="android_setup/step-1.png"
+                            alt="Android Stream app home screen with Start button">
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="step-slide" data-step="1">
+                    <div class="step-left">
+                        <div class="step-left__body">
+                            <span class="step-left__tag">Step 2 of 5</span>
+                            <h2 class="step-left__title">Allow Screen Casting</h2>
+                            <p class="step-left__desc">
+                                Android will show a <strong>"Cast your screen?"</strong> permission dialog.
+                                Keep the selection as <strong>Entire screen</strong> and tap <strong>Cast</strong>
+                                to grant the screen capture permission.
+                            </p>
+                            <div class="step-chips">
+                                <span class="step-chip step-chip--warn">Select: Entire screen</span>
+                                <span class="step-chip step-chip--action">Tap: Cast</span>
+                            </div>
+                        </div>
+                        <div class="step-left__nav">
+                            <button class="btn btn--ghost" data-prev>
+                                <svg width="16" height="16">
+                                    <use href="#ic-arrow-l" />
+                                </svg>
+                                <span>Previous</span>
+                            </button>
+                            <button class="btn btn--primary" data-next>
+                                <span>Next</span>
+                                <svg width="16" height="16">
+                                    <use href="#ic-arrow-r" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="step-right">
+                        <img class="step-right__img" src="android_setup/step-2.png" alt="Cast your screen dialog">
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="step-slide" data-step="2">
+                    <div class="step-left">
+                        <div class="step-left__body">
+                            <span class="step-left__tag">Step 3 of 5</span>
+                            <h2 class="step-left__title">Streaming is Live!</h2>
+                            <p class="step-left__desc">
+                                All three status indicators —
+                                <strong>Screen Mirroring</strong>, <strong>Audio</strong>, and <strong>Control</strong>
+                                —
+                                now show <em>Available</em>.
+                                Your PC can now mirror the screen. Next, enable touch control.
+                            </p>
+
+                        </div>
+                        <div class="step-left__nav">
+                            <button class="btn btn--ghost" data-prev>
+                                <svg width="16" height="16">
+                                    <use href="#ic-arrow-l" />
+                                </svg>
+                                <span>Previous</span>
+                            </button>
+                            <button class="btn btn--primary" data-next>
+                                <span>Next</span>
+                                <svg width="16" height="16">
+                                    <use href="#ic-arrow-r" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="step-right">
+                        <img class="step-right__img" src="android_setup/step-3.png"
+                            alt="App showing all statuses Available">
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="step-slide" data-step="3">
+                    <div class="step-left">
+                        <div class="step-left__body">
+                            <span class="step-left__tag">Step 4 of 5</span>
+                            <h2 class="step-left__title">Grant Touch Permission</h2>
+                            <p class="step-left__desc">
+                                The <strong>Enable Touch Control</strong> sheet will appear.
+                                This allows you to control your phone from your PC.
+                                Tap <strong>Grant Permission</strong> — you'll be taken to Accessibility settings.
+                            </p>
+                            <div class="step-mini-list">
+                                <div class="step-mini"><span class="step-mini__num">1</span><span>Tap <strong>Grant
+                                            Permission</strong></span></div>
+                                <div class="step-mini"><span class="step-mini__num">2</span><span>Goes to
+                                        <strong>Accessibility</strong> page</span></div>
+                                <div class="step-mini"><span class="step-mini__num">3</span><span>Open
+                                        <strong>Downloaded Apps</strong></span></div>
+                                <div class="step-mini"><span class="step-mini__num">4</span><span>Select <strong>Android
+                                            Stream Control</strong></span></div>
+                            </div>
+                        </div>
+                        <div class="step-left__nav">
+                            <button class="btn btn--ghost" data-prev>
+                                <svg width="16" height="16">
+                                    <use href="#ic-arrow-l" />
+                                </svg>
+                                <span>Previous</span>
+                            </button>
+                            <button class="btn btn--primary" data-next>
+                                <span>Next</span>
+                                <svg width="16" height="16">
+                                    <use href="#ic-arrow-r" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="step-right">
+                        <img class="step-right__img" src="android_setup/step-4.png" alt="Enable Touch Control sheet">
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="step-slide" data-step="4">
+                    <div class="step-left">
+                        <div class="step-left__body">
+                            <span class="step-left__tag">Step 5 of 5</span>
+                            <h2 class="step-left__title">Enable the Service</h2>
+                            <p class="step-left__desc">
+                                In the <strong>Android Stream Control</strong> accessibility page,
+                                toggle the switch <strong>ON</strong> at the top. Confirm any system prompt.
+                                You can now control your phone remotely from your PC!
+                            </p>
+
+                        </div>
+                        <div class="step-left__nav">
+                            <button class="btn btn--ghost" data-prev>
+                                <svg width="16" height="16">
+                                    <use href="#ic-arrow-l" />
+                                </svg>
+                                <span>Previous</span>
+                            </button>
+                            <button class="btn btn--primary" data-done>
+                                <span>Done</span>
+                                <svg width="16" height="16">
+                                    <use href="#ic-check" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="step-right">
+                        <img class="step-right__img" src="android_setup/step-5.png" alt="Accessibility toggle enabled">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ════════════════════════════════════════════════════════════
+             PAGE 3: WINDOWS CMD GUIDE
+             ════════════════════════════════════════════════════════════ -->
+        <div class="page step-page guide-windows" id="page-windows-cmd">
+
+            <!-- Top Bar -->
+            <div class="step-topbar">
+                <div class="step-topbar__left">
+                    <button class="step-topbar__back" data-go-home>
+                        <svg width="16" height="16">
+                            <use href="#ic-arrow-l" />
+                        </svg>
+                        <span>Back</span>
+                    </button>
+                    <span class="step-topbar__title">CMD Mode</span>
+                </div>
+                <div class="step-dots" id="dots-windows-cmd">
+                    <button class="step-dot active" data-dot="0" aria-label="Step 1"></button>
+                    <button class="step-dot" data-dot="1" aria-label="Step 2"></button>
+                    <button class="step-dot" data-dot="2" aria-label="Step 3"></button>
+                    <button class="step-dot" data-dot="3" aria-label="Step 4"></button>
+                </div>
+            </div>
+
+            <div class="step-content" id="slides-windows-cmd">
+
+                <!-- Step 1 -->
+                <div class="step-slide active" data-step="0">
+                    <div class="step-left">
+                        <div class="step-left__body">
+                            <span class="step-left__tag">Step 1 of 4</span>
+                            <h2 class="step-left__title">Download the ZIP File</h2>
+                            <p class="step-left__desc">
+                                Download <strong>Android_Stream_windows_cmd.zip</strong> from the releases page.
+                                You'll find the file in your <strong>Downloads</strong> folder.
+                            </p>
+                        </div>
+                        <div class="step-left__nav">
+                            <button class="btn btn--ghost" data-prev disabled>
+                                <svg width="16" height="16">
+                                    <use href="#ic-arrow-l" />
+                                </svg>
+                                <span>Previous</span>
+                            </button>
+                            <button class="btn btn--primary" data-next>
+                                <span>Next</span>
+                                <svg width="16" height="16">
+                                    <use href="#ic-arrow-r" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="step-right">
+                        <img class="step-right__img" src="windows_cmd_setup/step-1.png"
+                            alt="Android_Stream_windows_cmd.zip in Downloads folder">
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="step-slide" data-step="1">
+                    <div class="step-left">
+                        <div class="step-left__body">
+                            <span class="step-left__tag">Step 2 of 4</span>
+                            <h2 class="step-left__title">Extract &amp; Find the EXE</h2>
+                            <p class="step-left__desc">
+                                Right-click the ZIP and select <strong>Extract All</strong>.
+                                Open the extracted <strong>android_streamer</strong> folder —
+                                you'll see <strong>android_av_streamer.exe</strong> along with the required DLL files.
+                            </p>
+                        </div>
+                        <div class="step-left__nav">
+                            <button class="btn btn--ghost" data-prev>
+                                <svg width="16" height="16">
+                                    <use href="#ic-arrow-l" />
+                                </svg>
+                                <span>Previous</span>
+                            </button>
+                            <button class="btn btn--primary" data-next>
+                                <span>Next</span>
+                                <svg width="16" height="16">
+                                    <use href="#ic-arrow-r" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="step-right">
+                        <img class="step-right__img" src="windows_cmd_setup/step-2.png"
+                            alt="Extracted folder showing android_av_streamer.exe and DLL files">
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="step-slide" data-step="2">
+                    <div class="step-left">
+                        <div class="step-left__body">
+                            <span class="step-left__tag">Step 3 of 4</span>
+                            <h2 class="step-left__title">Open CMD in the Folder</h2>
+                            <p class="step-left__desc">
+                                Click the <strong>address bar</strong> at the top of File Explorer,
+                                type <strong>cmd</strong> and press <strong>Enter</strong>.
+                                This opens a Command Prompt directly inside the extracted folder.
+                            </p>
+                        </div>
+                        <div class="step-left__nav">
+                            <button class="btn btn--ghost" data-prev>
+                                <svg width="16" height="16">
+                                    <use href="#ic-arrow-l" />
+                                </svg>
+                                <span>Previous</span>
+                            </button>
+                            <button class="btn btn--primary" data-next>
+                                <span>Next</span>
+                                <svg width="16" height="16">
+                                    <use href="#ic-arrow-r" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="step-right">
+                        <img class="step-right__img" src="windows_cmd_setup/step-3.png"
+                            alt="Typing cmd in the address bar to open terminal in folder">
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="step-slide" data-step="3">
+                    <div class="step-left">
+                        <div class="step-left__body">
+                            <span class="step-left__tag">Step 4 of 4</span>
+                            <h2 class="step-left__title">Get IP &amp; Run the Command</h2>
+                            <p class="step-left__desc">
+                                Open the <strong>Android Stream</strong> app on your phone and copy the
+                                <strong>IP address</strong> shown under <em>Connection</em>.
+                                Then run the command below in CMD, replacing the IP with yours.
+                            </p>
+                            <div class="step-code">
+                                <span class="step-code__label">Command</span>
+                                <code class="step-code__text">android_av_streamer.exe 192.168.29.168 --auto-start</code>
+                                <button class="step-code__copy"
+                                    data-copy="android_av_streamer.exe 192.168.29.168 --auto-start">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="9" y="9" width="13" height="13" rx="2" />
+                                        <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" />
+                                    </svg>
+                                    <span>Copy</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="step-left__nav">
+                            <button class="btn btn--ghost" data-prev>
+                                <svg width="16" height="16">
+                                    <use href="#ic-arrow-l" />
+                                </svg>
+                                <span>Previous</span>
+                            </button>
+                            <button class="btn btn--primary" data-done>
+                                <span>Done</span>
+                                <svg width="16" height="16">
+                                    <use href="#ic-check" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="step-right">
+                        <img class="step-right__img" src="windows_cmd_setup/step-4.png"
+                            alt="Android Stream app showing IP address 192.168.29.168">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ════════════════════════════════════════════════════════════
+             PAGE 4: WINDOWS GUI GUIDE
+             ════════════════════════════════════════════════════════════ -->
+        <div class="page step-page guide-windows" id="page-windows-gui">
+
+            <!-- Top Bar -->
+            <div class="step-topbar">
+                <div class="step-topbar__left">
+                    <button class="step-topbar__back" data-go-home>
+                        <svg width="16" height="16">
+                            <use href="#ic-arrow-l" />
+                        </svg>
+                        <span>Back</span>
+                    </button>
+                    <span class="step-topbar__title">GUI Mode</span>
+                </div>
+                <div class="step-dots" id="dots-windows-gui">
+                    <button class="step-dot active" data-dot="0" aria-label="Step 1"></button>
+                    <button class="step-dot" data-dot="1" aria-label="Step 2"></button>
+                    <button class="step-dot" data-dot="2" aria-label="Step 3"></button>
+                    <button class="step-dot" data-dot="3" aria-label="Step 4"></button>
+                </div>
+            </div>
+
+            <div class="step-content" id="slides-windows-gui">
+
+                <!-- Step 1 -->
+                <div class="step-slide active" data-step="0">
+                    <div class="step-left">
+                        <div class="step-left__body">
+                            <span class="step-left__tag">Step 1 of 4</span>
+                            <h2 class="step-left__title">Download the ZIP File</h2>
+                            <p class="step-left__desc">
+                                Download <strong>Android_Stream_windows_gui.zip</strong> from the releases page.
+                                You'll find the file in your <strong>Downloads</strong> folder.
+                            </p>
+                        </div>
+                        <div class="step-left__nav">
+                            <button class="btn btn--ghost" data-prev disabled>
+                                <svg width="16" height="16">
+                                    <use href="#ic-arrow-l" />
+                                </svg>
+                                <span>Previous</span>
+                            </button>
+                            <button class="btn btn--primary" data-next>
+                                <span>Next</span>
+                                <svg width="16" height="16">
+                                    <use href="#ic-arrow-r" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="step-right">
+                        <img class="step-right__img" src="windows_gui_setup/step-1.png"
+                            alt="Android_Stream_windows_gui.zip in Downloads folder">
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="step-slide" data-step="1">
+                    <div class="step-left">
+                        <div class="step-left__body">
+                            <span class="step-left__tag">Step 2 of 4</span>
+                            <h2 class="step-left__title">Extract &amp; Find the App</h2>
+                            <p class="step-left__desc">
+                                Right-click the ZIP and select <strong>Extract All</strong>.
+                                Open the extracted <strong>Android_Stream_windows_gui</strong> folder &mdash;
+                                you'll see <strong>android_stream.exe</strong>, the <strong>android_streamer</strong>
+                                folder, and a <strong>data</strong> folder.
+                            </p>
+                        </div>
+                        <div class="step-left__nav">
+                            <button class="btn btn--ghost" data-prev>
+                                <svg width="16" height="16">
+                                    <use href="#ic-arrow-l" />
+                                </svg>
+                                <span>Previous</span>
+                            </button>
+                            <button class="btn btn--primary" data-next>
+                                <span>Next</span>
+                                <svg width="16" height="16">
+                                    <use href="#ic-arrow-r" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="step-right">
+                        <img class="step-right__img" src="windows_gui_setup/step-2.png"
+                            alt="Extracted folder showing android_stream.exe and supporting files">
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="step-slide" data-step="2">
+                    <div class="step-left">
+                        <div class="step-left__body">
+                            <span class="step-left__tag">Step 3 of 4</span>
+                            <h2 class="step-left__title">Launch the App</h2>
+                            <p class="step-left__desc">
+                                Double-click <strong>android_stream.exe</strong> to launch the GUI.
+                                The <strong>Android Streamer</strong> window will open with an
+                                <strong>Input Address</strong> field and a <strong>Start Session</strong> button.
+                            </p>
+                        </div>
+                        <div class="step-left__nav">
+                            <button class="btn btn--ghost" data-prev>
+                                <svg width="16" height="16">
+                                    <use href="#ic-arrow-l" />
+                                </svg>
+                                <span>Previous</span>
+                            </button>
+                            <button class="btn btn--primary" data-next>
+                                <span>Next</span>
+                                <svg width="16" height="16">
+                                    <use href="#ic-arrow-r" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="step-right">
+                        <img class="step-right__img" src="windows_gui_setup/step-3.png"
+                            alt="Android Streamer GUI window with Input Address and Start Session">
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="step-slide" data-step="3">
+                    <div class="step-left">
+                        <div class="step-left__body">
+                            <span class="step-left__tag">Step 4 of 4</span>
+                            <h2 class="step-left__title">Enter IP &amp; Start Session</h2>
+                            <p class="step-left__desc">
+                                Open the <strong>Android Stream</strong> app on your phone and copy the
+                                <strong>IP address</strong> shown under <em>Connection</em>.
+                                Paste it into the <strong>Input Address</strong> field in the GUI, then click
+                                <strong>Start Session</strong> &mdash; your phone's screen will mirror instantly.
+                            </p>
+                        </div>
+                        <div class="step-left__nav">
+                            <button class="btn btn--ghost" data-prev>
+                                <svg width="16" height="16">
+                                    <use href="#ic-arrow-l" />
+                                </svg>
+                                <span>Previous</span>
+                            </button>
+                            <button class="btn btn--primary" data-done>
+                                <span>Done</span>
+                                <svg width="16" height="16">
+                                    <use href="#ic-check" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="step-right">
+                        <img class="step-right__img" src="windows_gui_setup/step-4.png"
+                            alt="Entering IP from Android app into GUI and starting session">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script>
+        (() => {
+            'use strict';
+
+            const $ = (s, c = document) => c.querySelector(s);
+            const $$ = (s, c = document) => [...c.querySelectorAll(s)];
+
+            // ── Guide configs ─────────────────────────────────────────
+            const guides = {
+                'android': {
+                    pageId: 'page-android',
+                    slidesId: 'slides-android',
+                    dotsId: 'dots-android',
+                    total: 5,
+                    current: 0
+                },
+                'windows-cmd': {
+                    pageId: 'page-windows-cmd',
+                    slidesId: 'slides-windows-cmd',
+                    dotsId: 'dots-windows-cmd',
+                    total: 4,
+                    current: 0
+                },
+                'windows-gui': {
+                    pageId: 'page-windows-gui',
+                    slidesId: 'slides-windows-gui',
+                    dotsId: 'dots-windows-gui',
+                    total: 4,
+                    current: 0
+                }
+            };
+
+            let activeGuide = null;
+
+            // ── Page Navigation ───────────────────────────────────────
+            function showPage(pageId) {
+                const allPages = $$('.page');
+                const target = document.getElementById(pageId);
+                if (!target) return;
+
+                allPages.forEach(p => {
+                    if (p.classList.contains('active')) {
+                        p.classList.remove('active');
+                        p.classList.add('exit-left');
+                        setTimeout(() => p.classList.remove('exit-left'), 400);
+                    }
+                });
+
+                setTimeout(() => target.classList.add('active'), 50);
+            }
+
+            function goHome() {
+                activeGuide = null;
+                showPage('page-select');
+            }
+
+            function openGuide(guideKey) {
+                const guide = guides[guideKey];
+                if (!guide) return;
+                activeGuide = guideKey;
+                guide.current = 0;
+                resetGuideSlides(guideKey);
+                showPage(guide.pageId);
+            }
+
+            // ── Step Navigation ───────────────────────────────────────
+            function resetGuideSlides(guideKey) {
+                const guide = guides[guideKey];
+                const container = document.getElementById(guide.slidesId);
+                if (!container) return;
+
+                $$('.step-slide', container).forEach((s, i) => {
+                    s.classList.remove('active', 'exit');
+                    if (i === 0) s.classList.add('active');
+                });
+
+                const dotsContainer = document.getElementById(guide.dotsId);
+                if (dotsContainer) {
+                    $$('.step-dot', dotsContainer).forEach((d, i) => {
+                        d.classList.remove('active', 'done');
+                        if (i === 0) d.classList.add('active');
+                    });
+                }
+            }
+
+            function goToStep(guideKey, newIndex) {
+                const guide = guides[guideKey];
+                if (!guide) return;
+                if (newIndex < 0 || newIndex >= guide.total) return;
+                if (newIndex === guide.current) return;
+
+                const container = document.getElementById(guide.slidesId);
+                if (!container) return;
+
+                const slides = $$('.step-slide', container);
+                const oldSlide = slides[guide.current];
+                const newSlide = slides[newIndex];
+                if (!oldSlide || !newSlide) return;
+
+                // Exit old
+                oldSlide.classList.add('exit');
+                oldSlide.classList.remove('active');
+                setTimeout(() => oldSlide.classList.remove('exit'), 400);
+
+                // Enter new
+                newSlide.style.transform = newIndex > guide.current ? 'translateX(40px)' : 'translateX(-40px)';
+                newSlide.classList.add('active');
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        newSlide.style.transform = '';
+                    });
+                });
+
+                guide.current = newIndex;
+
+                // Update dots
+                const dotsContainer = document.getElementById(guide.dotsId);
+                if (dotsContainer) {
+                    $$('.step-dot', dotsContainer).forEach((d, i) => {
+                        d.classList.remove('active', 'done');
+                        if (i === newIndex) d.classList.add('active');
+                        if (i < newIndex) d.classList.add('done');
+                    });
+                }
+            }
+
+            // ── Toast ─────────────────────────────────────────────────
+            function showToast(msg) {
+                const el = document.getElementById('toast');
+                if (!el) return;
+                el.textContent = msg;
+                el.classList.add('show');
+                clearTimeout(el._t);
+                el._t = setTimeout(() => el.classList.remove('show'), 2500);
+            }
+
+            // ── Clipboard ─────────────────────────────────────────────
+            async function copyText(text, btn) {
+                try {
+                    if (navigator.clipboard && navigator.clipboard.writeText) {
+                        await navigator.clipboard.writeText(text);
+                    } else {
+                        const ta = document.createElement('textarea');
+                        ta.value = text;
+                        ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0';
+                        document.body.appendChild(ta);
+                        ta.focus();
+                        ta.select();
+                        document.execCommand('copy');
+                        document.body.removeChild(ta);
+                    }
+                    const span = $('span', btn);
+                    if (span) {
+                        span.textContent = 'Copied!';
+                        setTimeout(() => { span.textContent = 'Copy'; }, 1800);
+                    }
+                    showToast('Command copied ✓');
+                } catch (err) {
+                    showToast('Press Ctrl+C to copy');
+                }
+            }
+
+            // ── Find guide from element ───────────────────────────────
+            function getGuideFromElement(el) {
+                const page = el.closest('.step-page');
+                if (!page) return null;
+                for (const key in guides) {
+                    if (guides[key].pageId === page.id) return key;
+                }
+                return null;
+            }
+
+            // ── Event Delegation ──────────────────────────────────────
+            document.addEventListener('click', e => {
+
+                // Selection cards
+                const card = e.target.closest('[data-guide]');
+                if (card) { openGuide(card.dataset.guide); return; }
+
+                // Go home
+                if (e.target.closest('[data-go-home]')) { goHome(); return; }
+
+                // Next
+                if (e.target.closest('[data-next]')) {
+                    const guideKey = getGuideFromElement(e.target);
+                    if (guideKey) goToStep(guideKey, guides[guideKey].current + 1);
+                    return;
+                }
+
+                // Previous
+                if (e.target.closest('[data-prev]')) {
+                    const guideKey = getGuideFromElement(e.target);
+                    if (guideKey) goToStep(guideKey, guides[guideKey].current - 1);
+                    return;
+                }
+
+                // Done
+                if (e.target.closest('[data-done]')) {
+                    goHome();
+                    showToast('🎉 Setup complete! You\'re ready to go.');
+                    return;
+                }
+
+                // Step dots
+                const dot = e.target.closest('[data-dot]');
+                if (dot) {
+                    const guideKey = getGuideFromElement(dot);
+                    if (guideKey) goToStep(guideKey, parseInt(dot.dataset.dot, 10));
+                    return;
+                }
+
+                // Copy
+                const copyBtn = e.target.closest('[data-copy]');
+                if (copyBtn) { copyText(copyBtn.dataset.copy, copyBtn); return; }
+            });
+
+            // ── Keyboard ──────────────────────────────────────────────
+            document.addEventListener('keydown', e => {
+                if (!activeGuide) return;
+                if (e.target.closest('input, textarea, .step-code__text')) return;
+
+                const guide = guides[activeGuide];
+                if (!guide) return;
+
+                if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    if (guide.current < guide.total - 1) goToStep(activeGuide, guide.current + 1);
+                }
+                if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    if (guide.current > 0) goToStep(activeGuide, guide.current - 1);
+                }
+                if (e.key === 'Escape') goHome();
+            });
+
+        })();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+{
+  "android": {
+    "title": "How to setup a Android stream app",
+    "description": "Follow these steps to configure your Android device for streaming.",
+    "action_button": "Start",
+    "steps": [
+      {
+        "step_id": 1,
+        "title": "Enable Developer Options",
+        "description": "Go to Settings > About Phone and tap Build Number 7 times.",
+        "image": "assets/android_step1.png"
+      },
+      {
+        "step_id": 2,
+        "title": "Enable USB Debugging",
+        "description": "In Developer Options, switch on USB Debugging.",
+        "image": "assets/android_step2.png"
+      }
+    ]
+  },
+  "windows": {
+    "title": "How to setup a windows side connection?",
+    "description": "Select your preferred usage mode to see the setup instructions.",
+    "options": [
+      {
+        "id": "cmd_mode",
+        "label": "Cmd mode",
+        "description": "Run via Command Line Interface for advanced users."
+      },
+      {
+        "id": "gui_mode",
+        "label": "GUI mode",
+        "description": "Run via Graphical User Interface for ease of use."
+      }
+    ],
+    "modes": {
+      "cmd_mode": {
+        "title": "Command Line Setup",
+        "steps": [
+          {
+            "step_id": 1,
+            "title": "Open Terminal",
+            "description": "Launch PowerShell or Command Prompt.",
+            "image": "assets/win_cmd_step1.png"
+          },
+          {
+            "step_id": 2,
+            "title": "Run Connect Command",
+            "description": "Execute the connection command provided in the documentation.",
+            "image": "assets/win_cmd_step2.png"
+          }
+        ]
+      },
+      "gui_mode": {
+        "title": "GUI App Setup",
+        "steps": [
+          {
+            "step_id": 1,
+            "title": "Launch Application",
+            "description": "Double click the App-Scrcpy icon.",
+            "image": "assets/win_gui_step1.png"
+          },
+          {
+            "step_id": 2,
+            "title": "Select Device",
+            "description": "Choose your connected device from the list.",
+            "image": "assets/win_gui_step2.png"
+          }
+        ]
+      }
+    }
+  }
+}
