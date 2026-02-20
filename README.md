@@ -8,7 +8,7 @@ No USB. No ADB. No root. No drivers. Just Wi-Fi.
 
 ---
 
-## ⚡ Quick Download
+## ⚡ Quick Start
 
 | Platform       | Download                                                                                                       |
 | -------------- | -------------------------------------------------------------------------------------------------------------- |
@@ -19,6 +19,23 @@ No USB. No ADB. No root. No drivers. Just Wi-Fi.
 | Setup Guide | [View Guide](https://shrey113.github.io/App-Scrcpy/data/setup_guide.html)                                      |
 | Website     | [Visit Website](https://shrey113.github.io/App-Scrcpy/)                                                        |
 |How use CMD | [How use CMD](https://github.com/Shrey113/App-Scrcpy/blob/main/data/README_file/CMD_USAGE.md)
+---
+
+---
+
+## ⚠️ Important
+
+> 🚀 **App-Scrcpy is part of the main project - Adb-Device-Manager-2**
+> 
+> Starting from **v1.5**, this feature is also available as a  
+> **standalone lightweight app** for users who only need wireless streaming.
+>
+> 🔗 Full Project:  
+> https://github.com/Shrey113/Adb-Device-Manager-2
+>
+> If you want the complete all-in-one Android device management suite  
+> with many advanced features — check out the main project.
+
 ---
 
 ## ✨ What Makes It Special?
