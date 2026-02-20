@@ -82,6 +82,9 @@ Everything runs in real time.(*Depend on your wifi speed & Device performance)
 | Ctrl + F | Toggle Fullscreen |
 | Ctrl + W | Toggle Border     |
 | Ctrl + S | Open Settings     |
+| Ctrl + B | Go Back     |
+| Ctrl + R | Open Recent Apps     |
+| Ctrl + H | Go to Home Screen     |
 
 ---
 
