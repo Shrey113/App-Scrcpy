@@ -18,7 +18,7 @@ No USB. No ADB. No root. No drivers. Just Wi-Fi.
 | Linux / Mac | Coming Soon ⌛                                                                                                  |
 | Setup Guide | [View Guide](https://shrey113.github.io/App-Scrcpy/data/setup_guide.html)                                      |
 | Website     | [Visit Website](https://shrey113.github.io/App-Scrcpy/)                                                        |
-|How use CMD | [How use CMD](https://github.com/Shrey113/App-Scrcpy/data/README_file/CMD_USAGE.md)
+|How use CMD | [How use CMD](https://github.com/Shrey113/App-Scrcpy/blob/main/data/README_file/CMD_USAGE.md)
 ---
 
 ## ✨ What Makes It Special?
