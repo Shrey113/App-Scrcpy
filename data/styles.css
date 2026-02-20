@@ -7,7 +7,7 @@ a{text-decoration:none;color:inherit}
 .navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(11,15,27,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
 .nav-container{max-width:1180px;margin:0 auto;padding:0 24px;height:68px;display:flex;align-items:center;justify-content:space-between}
 .nav-logo{display:flex;align-items:center;gap:10px;font-weight:600;font-size:15px;color:var(--text-primary)}
-.logo-icon{width:34px;height:34px;background:linear-gradient(135deg,var(--accent),#22d3ee);border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:700;color:#0b0f1b}
+.logo-icon{width:34px;height:34px;border-radius:10px;object-fit:contain;background:transparent}
 .logo-icon.small{width:26px;height:26px;border-radius:7px}
 .nav-links{display:flex;gap:28px}
 .nav-links a{font-size:14px;font-weight:500;color:var(--text-secondary);transition:color 0.2s}

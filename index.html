@@ -1,263 +1,297 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Android Streamer</title>
-    <meta name="description" content="Android Streamer makes it easy to mirror your phone, hear audio, and control it from your Windows PC." />
-    <meta name="theme-color" content="#0b0f1b" />
-    <link rel="stylesheet" href="data/styles.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  </head>
-  <body>
-    <nav class="navbar" aria-label="Main navigation">
-      <div class="nav-container">
-        <a href="#" class="nav-logo">
-          <div class="logo-icon">
-            <span>AS</span>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Primary Meta Tags -->
+  <title>Android Streamer - Control & Mirror Your Android Phone from Windows PC</title>
+  <meta name="title" content="Android Streamer - Control & Mirror Your Android Phone from Windows PC" />
+  <meta name="description"
+    content="Android Streamer is a powerful tool to mirror, control, and stream audio from your Android phone directly to your Windows PC. A great alternative to Scrcpy with a clean UI." />
+  <meta name="keywords"
+    content="Android Streamer, control Android from PC, mirror Android to Windows, screen mirroring, Scrcpy alternative, Android on PC, stream Android audio, control phone from PC, Windows Android mirroring, remote control Android, wireless Android mirroring" />
+  <meta name="author" content="Shrey113" />
+  <meta name="robots" content="index, follow" />
+  <meta name="language" content="English" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://github.com/Shrey113/App-Scrcpy" />
+  <meta property="og:title" content="Android Streamer - Control & Mirror Your Android Phone from Windows PC" />
+  <meta property="og:description"
+    content="Mirror, control, and stream audio from your Android phone directly to your Windows PC over Wi-Fi. Experience seamless remote control with Android Streamer." />
+  <meta property="og:image" content="data/app_icon.png" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://github.com/Shrey113/App-Scrcpy" />
+  <meta property="twitter:title" content="Android Streamer - Control & Mirror Your Android Phone from Windows PC" />
+  <meta property="twitter:description"
+    content="Mirror, control, and stream audio from your Android phone directly to your Windows PC over Wi-Fi. Experience seamless remote control with Android Streamer." />
+  <meta property="twitter:image" content="data/app_icon.png" />
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://github.com/Shrey113/App-Scrcpy" />
+
+  <meta name="theme-color" content="#0b0f1b" />
+  <link rel="stylesheet" href="data/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="data/app_icon.png" />
+</head>
+
+<body>
+  <nav class="navbar" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">
+        <img src="data/app_icon.png" alt="App Icon" class="logo-icon" />
+        <span>Android Streamer</span>
+      </a>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#how">How it works</a>
+        <a href="#use">Use cases</a>
+        <a href="#get">Get started</a>
+      </div>
+      <a href="https://github.com/Shrey113/App-Scrcpy" target="_blank" rel="noopener noreferrer" class="nav-btn">Get the
+        app</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="gradient-orb orb-1"></div>
+      <div class="gradient-orb orb-2"></div>
+      <div class="grid-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">Wireless Android experience</div>
+      <h1>Mirror and Control Your Android Phone from Your Windows PC</h1>
+      <p class="hero-subtitle">
+        Android Streamer brings your Android device to a clean Windows window over Wi-Fi. Enjoy wireless audio
+        streaming, high-quality screen mirroring, and smooth control using your mouse and keyboard—a modern alternative
+        to Scrcpy.
+      </p>
+      <div class="hero-actions">
+        <a href="https://github.com/Shrey113/App-Scrcpy" target="_blank" rel="noopener noreferrer"
+          class="btn btn-primary">Get started</a>
+        <a href="#features" class="btn btn-secondary">See features</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-value">1‑tap</span>
+          <span class="stat-label">Start streaming</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value">Wireless</span>
+          <span class="stat-label">Same Wi‑Fi</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value">Flexible</span>
+          <span class="stat-label">Audio, screen, control</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="device-mockup">
+        <div class="phone-frame">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <div class="screen-ui">
+              <div class="app-cards">
+                <div class="mini-card"></div>
+                <div class="mini-card active"></div>
+                <div class="mini-card"></div>
+              </div>
+              <div class="activity-list">
+                <div class="activity-row"></div>
+                <div class="activity-row short"></div>
+                <div class="activity-row"></div>
+              </div>
+            </div>
           </div>
+        </div>
+        <div class="connection-beam"></div>
+        <div class="monitor-frame">
+          <div class="monitor-screen">
+            <div class="screen-ui large">
+              <div class="taskbar">
+                <div class="taskbar-start"></div>
+                <div class="taskbar-apps">
+                  <div class="app-icon"></div>
+                  <div class="app-icon active"></div>
+                  <div class="app-icon"></div>
+                </div>
+                <div class="taskbar-tray"></div>
+              </div>
+              <div class="desktop-windows">
+                <div class="window window-main">
+                  <div class="window-header">
+                    <div class="window-dots">
+                      <span></span><span></span><span></span>
+                    </div>
+                  </div>
+                  <div class="window-content">
+                    <div class="content-lines">
+                      <div class="line"></div>
+                      <div class="line short"></div>
+                      <div class="line"></div>
+                      <div class="line medium"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="monitor-stand"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="features">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Features</span>
+        <h2>Powerful Features for Seamless Android Control</h2>
+        <p>Clean controls designed for real people, not just power users.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <h3>Audio output</h3>
+          <p>Route phone audio to your PC speakers or headset.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Screen display</h3>
+          <p>Mirror your phone in a smooth, resizable window.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Remote control</h3>
+          <p>Use mouse and keyboard for taps, typing, and navigation.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Always on top</h3>
+          <p>Keep the window visible while you work or present.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Borderless mode</h3>
+          <p>Focus on content with a clean, edge‑to‑edge view.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Quick shortcuts</h3>
+          <p>Open or hide the panel instantly with simple keys.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how" class="how-it-works">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">How it works</span>
+        <h2>How to Mirror Android to PC in Minutes</h2>
+        <p>Follow three easy steps and you are ready.</p>
+      </div>
+      <div class="steps-container">
+        <div class="step">
+          <div class="step-number">01</div>
+          <div class="step-content">
+            <h3>Open the Android app</h3>
+            <p>Allow screen sharing when prompted.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">02</div>
+          <div class="step-content">
+            <h3>Open the Windows app</h3>
+            <p>Make sure your phone and PC are on the same Wi‑Fi.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">03</div>
+          <div class="step-content">
+            <h3>Select what you want</h3>
+            <p>Choose audio, screen, or control and press Start.</p>
+          </div>
+        </div>
+      </div>
+      <div class="requirements">
+        <h3>What you need</h3>
+        <div class="req-grid">
+          <div class="req-item">
+            <span>Android phone</span>
+          </div>
+          <div class="req-item">
+            <span>Windows PC</span>
+          </div>
+          <div class="req-item">
+            <span>Same Wi‑Fi</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="use" class="use-cases">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Use cases</span>
+        <h2>Made for real‑world moments</h2>
+        <p>Work, study, stream, or share without touching your phone.</p>
+      </div>
+      <div class="use-grid">
+        <div class="use-card">
+          <h3>Present your phone</h3>
+          <p>Share demos and walkthroughs in a clean window.</p>
+        </div>
+        <div class="use-card">
+          <h3>Reply faster</h3>
+          <p>Type with a full keyboard while staying focused.</p>
+        </div>
+        <div class="use-card">
+          <h3>Watch and listen</h3>
+          <p>Enjoy videos, music, and app audio on larger speakers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="get" class="cta">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Ready to start?</h2>
+        <p>Launch the Android app, open the Windows viewer, and enjoy.</p>
+        <div class="cta-actions">
+          <a href="https://github.com/Shrey113/App-Scrcpy" target="_blank" rel="noopener noreferrer"
+            class="btn btn-primary btn-large">Download for Windows</a>
+          <a href="https://github.com/Shrey113/App-Scrcpy" target="_blank" rel="noopener noreferrer"
+            class="btn btn-ghost btn-large">Get Android app</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <img src="data/app_icon.png" alt="App Icon" class="logo-icon small" />
           <span>Android Streamer</span>
-        </a>
-        <div class="nav-links">
-          <a href="#features">Features</a>
-          <a href="#how">How it works</a>
-          <a href="#use">Use cases</a>
-          <a href="#get">Get started</a>
         </div>
-        <a href="#get" class="nav-btn">Get the app</a>
+        <div class="footer-links">
+          <span>Simple. Clean. Wireless.</span>
+        </div>
+        <div class="footer-copy">
+          <span>© <span id="year"></span></span>
+        </div>
       </div>
-    </nav>
+    </div>
+  </footer>
 
-    <section class="hero">
-      <div class="hero-bg">
-        <div class="gradient-orb orb-1"></div>
-        <div class="gradient-orb orb-2"></div>
-        <div class="grid-overlay"></div>
-      </div>
-      <div class="hero-content">
-        <div class="hero-badge">Wireless Android experience</div>
-        <h1>See, hear, and control your phone from your PC</h1>
-        <p class="hero-subtitle">
-          Android Streamer brings your phone to a clean Windows window. Enjoy audio, screen mirroring, and
-          smooth control without picking up your device.
-        </p>
-        <div class="hero-actions">
-          <a href="#get" class="btn btn-primary">Get started</a>
-          <a href="#features" class="btn btn-secondary">See features</a>
-        </div>
-        <div class="hero-stats">
-          <div class="stat">
-            <span class="stat-value">1‑tap</span>
-            <span class="stat-label">Start streaming</span>
-          </div>
-          <div class="stat">
-            <span class="stat-value">Wireless</span>
-            <span class="stat-label">Same Wi‑Fi</span>
-          </div>
-          <div class="stat">
-            <span class="stat-value">Flexible</span>
-            <span class="stat-label">Audio, screen, control</span>
-          </div>
-        </div>
-      </div>
-      <div class="hero-visual">
-        <div class="device-mockup">
-          <div class="phone-frame">
-            <div class="phone-notch"></div>
-            <div class="phone-screen">
-              <div class="screen-ui">
-                <div class="app-cards">
-                  <div class="mini-card"></div>
-                  <div class="mini-card active"></div>
-                  <div class="mini-card"></div>
-                </div>
-                <div class="activity-list">
-                  <div class="activity-row"></div>
-                  <div class="activity-row short"></div>
-                  <div class="activity-row"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="connection-beam"></div>
-          <div class="monitor-frame">
-            <div class="monitor-screen">
-              <div class="screen-ui large">
-                <div class="taskbar">
-                  <div class="taskbar-start"></div>
-                  <div class="taskbar-apps">
-                    <div class="app-icon"></div>
-                    <div class="app-icon active"></div>
-                    <div class="app-icon"></div>
-                  </div>
-                  <div class="taskbar-tray"></div>
-                </div>
-                <div class="desktop-windows">
-                  <div class="window window-main">
-                    <div class="window-header">
-                      <div class="window-dots">
-                        <span></span><span></span><span></span>
-                      </div>
-                    </div>
-                    <div class="window-content">
-                      <div class="content-lines">
-                        <div class="line"></div>
-                        <div class="line short"></div>
-                        <div class="line"></div>
-                        <div class="line medium"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="monitor-stand"></div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <script src="data/app.js"></script>
+</body>
 
-    <section id="features" class="features">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tag">Features</span>
-          <h2>Everything you need for daily use</h2>
-          <p>Clean controls designed for real people, not just power users.</p>
-        </div>
-        <div class="features-grid">
-          <div class="feature-card">
-            <h3>Audio output</h3>
-            <p>Route phone audio to your PC speakers or headset.</p>
-          </div>
-          <div class="feature-card">
-            <h3>Screen display</h3>
-            <p>Mirror your phone in a smooth, resizable window.</p>
-          </div>
-          <div class="feature-card">
-            <h3>Remote control</h3>
-            <p>Use mouse and keyboard for taps, typing, and navigation.</p>
-          </div>
-          <div class="feature-card">
-            <h3>Always on top</h3>
-            <p>Keep the window visible while you work or present.</p>
-          </div>
-          <div class="feature-card">
-            <h3>Borderless mode</h3>
-            <p>Focus on content with a clean, edge‑to‑edge view.</p>
-          </div>
-          <div class="feature-card">
-            <h3>Quick shortcuts</h3>
-            <p>Open or hide the panel instantly with simple keys.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="how" class="how-it-works">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tag">How it works</span>
-          <h2>Connect in minutes</h2>
-          <p>Follow three easy steps and you are ready.</p>
-        </div>
-        <div class="steps-container">
-          <div class="step">
-            <div class="step-number">01</div>
-            <div class="step-content">
-              <h3>Open the Android app</h3>
-              <p>Allow screen sharing when prompted.</p>
-            </div>
-          </div>
-          <div class="step">
-            <div class="step-number">02</div>
-            <div class="step-content">
-              <h3>Open the Windows app</h3>
-              <p>Make sure your phone and PC are on the same Wi‑Fi.</p>
-            </div>
-          </div>
-          <div class="step">
-            <div class="step-number">03</div>
-            <div class="step-content">
-              <h3>Select what you want</h3>
-              <p>Choose audio, screen, or control and press Start.</p>
-            </div>
-          </div>
-        </div>
-        <div class="requirements">
-          <h3>What you need</h3>
-          <div class="req-grid">
-            <div class="req-item">
-              <span>Android phone</span>
-            </div>
-            <div class="req-item">
-              <span>Windows PC</span>
-            </div>
-            <div class="req-item">
-              <span>Same Wi‑Fi</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="use" class="use-cases">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tag">Use cases</span>
-          <h2>Made for real‑world moments</h2>
-          <p>Work, study, stream, or share without touching your phone.</p>
-        </div>
-        <div class="use-grid">
-          <div class="use-card">
-            <h3>Present your phone</h3>
-            <p>Share demos and walkthroughs in a clean window.</p>
-          </div>
-          <div class="use-card">
-            <h3>Reply faster</h3>
-            <p>Type with a full keyboard while staying focused.</p>
-          </div>
-          <div class="use-card">
-            <h3>Watch and listen</h3>
-            <p>Enjoy videos, music, and app audio on larger speakers.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="get" class="cta">
-      <div class="container">
-        <div class="cta-content">
-          <h2>Ready to start?</h2>
-          <p>Launch the Android app, open the Windows viewer, and enjoy.</p>
-          <div class="cta-actions">
-            <a href="#" class="btn btn-primary btn-large">Download for Windows</a>
-            <a href="#" class="btn btn-ghost btn-large">Get Android app</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-brand">
-            <div class="logo-icon small">
-              <span>AS</span>
-            </div>
-            <span>Android Streamer</span>
-          </div>
-          <div class="footer-links">
-            <span>Simple. Clean. Wireless.</span>
-          </div>
-          <div class="footer-copy">
-            <span>© <span id="year"></span></span>
-          </div>
-        </div>
-      </div>
-    </footer>
-
-    <script src="data/app.js"></script>
-  </body>
 </html>

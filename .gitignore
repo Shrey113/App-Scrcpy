@@ -15,3 +15,7 @@
 
 # Allow .gitignore
 !.gitignore
+
+!favicon.png
+
+!google27bfd0b0515c9981.html
