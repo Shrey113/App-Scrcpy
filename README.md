@@ -29,9 +29,19 @@ No USB. No ADB. No root. No drivers. Just Wi-Fi.
 > From **v1.5**, it's also available as a standalone lightweight app . Full Project - [Adb-Device-Manager-2](https://github.com/Shrey113/Adb-Device-Manager-2)
 > 
 >
+<br>
+
+### 📊 Feature Overview
+
+| Feature             | Android App | ADB Required | Works on Lock Screen |
+| ------------------- | ----------- | ------------ | -------------------- |
+| Screen Streaming | ✅ Yes       | ❌ No         | ❌ No                 |
+| Internal Audio   | ✅ Yes       | ❌ No         | ✅ Yes                |
+| Full Control     | ✅ Yes       | ❌ No         | ❌ No                 |
+| App Access       | ✅ Yes       | ✅ Yes        | ✅ Yes                |
 
 
-## ✨ What Makes It Special?
+### ✨ What Makes It Special?
 
 App-Scrcpy is built for **performance**, **stability**, and **real control**.
 
@@ -47,7 +57,7 @@ All over your **local Wi-Fi network**.
 
 ---
 
-## 🧠 How It Works (Simple Version)
+### 🧠 How It Works (Simple Version)
 
 The Android app:
 
@@ -68,12 +78,13 @@ Everything runs in real time.(*Depend on your wifi speed & Device performance)
 
 ---
 
-## ⌨ Windows Hotkeys
+### ⌨ Windows Hotkeys
 
 | Shortcut | Action            |
 | -------- | ----------------- |
 | Ctrl + F | Toggle Fullscreen |
 | Ctrl + W | Toggle Border     |
+| Ctrl + A | ALL Apps     |
 | Ctrl + S | Open Settings     |
 | Ctrl + B | Go Back     |
 | Ctrl + R | Open Recent Apps     |
@@ -91,14 +102,14 @@ If Wi-Fi slows down, quality adjusts automatically to keep the stream smooth.
 
 ---
 
-##  Android Requirements
+### Android Requirements
 
 * Android 10+ (for audio capture)
 * Accessibility permission (for remote control)
 * Screen capture permission
 
 
-## Windows Requirements
+### Windows Requirements
 
 * Windows 10 or newer
 * Same local network as your phone
@@ -106,7 +117,7 @@ If Wi-Fi slows down, quality adjusts automatically to keep the stream smooth.
 
 ---
 
-## 🚀 How To Use
+### 🚀 How To Use
 
 1. Install Android APK
 2. Grant required permissions
@@ -122,7 +133,7 @@ Your screen appears in seconds.
 
 
 
-## 💡 Why App-Scrcpy?
+### 💡 Why App-Scrcpy?
 
 Because it’s:
 
@@ -134,7 +145,7 @@ Because it’s:
 * Made for real usage
 
 ---
-## Sample Images
+### Sample Images
 
 <img src="data/README_file/win_android.png" alt="win_android" width="500">
 
