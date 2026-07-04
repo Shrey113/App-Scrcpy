@@ -13,8 +13,8 @@ No USB. No ADB. No root. No drivers. Just Wi-Fi.
 | Platform       | Download                                                                                                       |
 | -------------- | -------------------------------------------------------------------------------------------------------------- |
 | Android APK | [Download APK](https://github.com/Shrey113/App-Scrcpy/releases/latest/download/Android_Stream_Installer.apk)   |
-| Windows GUI | [Download GUI](https://github.com/Shrey113/App-Scrcpy/releases/latest/download/Android_Stream_windows_gui.zip) |
 | Windows CMD | [Download CMD](https://github.com/Shrey113/App-Scrcpy/releases/latest/download/Android_Stream_windows_cmd.zip) |
+| Windows GUI | [Download GUI](https://github.com/Shrey113/Adb-Device-Manager-2) |
 | Linux / Mac | Coming Soon ⌛                                                                                                  |
 | Setup Guide | [View Guide](https://shrey113.github.io/App-Scrcpy/data/setup_guide.html)                                      |
 | Website     | [Visit Website](https://shrey113.github.io/App-Scrcpy/)                                                        |
@@ -33,12 +33,11 @@ No USB. No ADB. No root. No drivers. Just Wi-Fi.
 
 ### 📊 Feature Overview
 
-| Feature             | Android App | ADB Required | Works on Lock Screen |
-| ------------------- | ----------- | ------------ | -------------------- |
-| Screen Streaming | ✅ Yes       | ❌ No         | ❌ No                 |
-| Internal Audio   | ✅ Yes       | ❌ No         | ✅ Yes                |
-| Full Control     | ✅ Yes       | ❌ No         | ❌ No                 |
-| App Access       | ✅ Yes       | ✅ Yes        | ✅ Yes                |
+| Feature             | Android App | Works on Lock Screen |
+| ------------------- | ----------- | -------------------- |
+| Screen Streaming | ✅ Yes       | ❌ No                 |
+| Internal Audio   | ✅ Yes       | ✅ Yes                |
+| Full Control     | ✅ Yes       | ❌ No                 |
 
 
 ### ✨ What Makes It Special?
@@ -84,7 +83,6 @@ Everything runs in real time.(*Depend on your wifi speed & Device performance)
 | -------- | ----------------- |
 | Ctrl + F | Toggle Fullscreen |
 | Ctrl + W | Toggle Border     |
-| Ctrl + A | ALL Apps     |
 | Ctrl + S | Open Settings     |
 | Ctrl + B | Go Back     |
 | Ctrl + R | Open Recent Apps     |
