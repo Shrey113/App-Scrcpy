@@ -1,156 +1,78 @@
+# App-Scrcpy
 
-## 🚀 App-Scrcpy
+Wireless Android screen and audio streaming to Windows.
 
-### Wireless Android Screen & Audio Streaming to Windows
+Mirror your Android device screen to a Windows PC with low latency, system audio, and touch control over local Wi-Fi.
 
-Mirror your Android screen to your Windows PC — with **real-time audio**, **low latency**, and **full remote control**.
-No USB. No ADB. No root. No drivers. Just Wi-Fi.
+No USB cables, ADB setup, root permissions, or extra drivers required.
 
----
+## Downloads
 
-## ⚡ Quick Start
+| Platform / Resource | Link |
+| :--- | :--- |
+| Android App | [Download APK](https://github.com/Shrey113/App-Scrcpy/releases/latest/download/Android_Stream_Installer.apk) |
+| Windows GUI | [Download GUI Repository](https://github.com/Shrey113/Adb-Device-Manager-2) |
+| Windows CMD | [Download CMD Version](https://github.com/Shrey113/App-Scrcpy/releases/latest/download/Android_Stream_windows_cmd.zip) |
+| Security | [VirusTotal Scan Report](https://www.virustotal.com/gui/file/e5f1d6d30de5951c07b1d6be4014281dae60954d02efbd00542d859f9de5a049?nocache=1) |
+| Setup Guide | [View Setup Guide](https://shrey113.github.io/App-Scrcpy/data/setup_guide.html) |
+| Command Line Info | [CMD Usage Instructions](https://github.com/Shrey113/App-Scrcpy/blob/main/data/README_file/CMD_USAGE.md) |
+| Project Website | [Visit Website](https://shrey113.github.io/App-Scrcpy/) |
 
-| Platform       | Download                                                                                                       |
-| -------------- | -------------------------------------------------------------------------------------------------------------- |
-| Android APK | [Download APK](https://github.com/Shrey113/App-Scrcpy/releases/latest/download/Android_Stream_Installer.apk)   |
-| Windows CMD | [Download CMD](https://github.com/Shrey113/App-Scrcpy/releases/latest/download/Android_Stream_windows_cmd.zip) |
-| Windows GUI | [Download GUI](https://github.com/Shrey113/Adb-Device-Manager-2) |
-| Linux / Mac | Coming Soon ⌛                                                                                                  |
-| Setup Guide | [View Guide](https://shrey113.github.io/App-Scrcpy/data/setup_guide.html)                                      |
-| Website     | [Visit Website](https://shrey113.github.io/App-Scrcpy/)                                                        |
-|How use CMD | [How use CMD](https://github.com/Shrey113/App-Scrcpy/blob/main/data/README_file/CMD_USAGE.md)
+*Note: App-Scrcpy is a module of [Adb-Device-Manager-2](https://github.com/Shrey113/Adb-Device-Manager-2) available as a standalone lightweight streaming server from version 1.5.*
 
-<br>
+## Features
 
->
->⚠️ Important
-> 
-> **App-Scrcpy** is part of **Adb-Device-Manager-2**.  
-> From **v1.5**, it's also available as a standalone lightweight app . Full Project - [Adb-Device-Manager-2](https://github.com/Shrey113/Adb-Device-Manager-2)
-> 
->
-<br>
+- **H.264 Video Streaming:** Hardware-encoded screen capture via MediaProjection.
+- **Internal Audio Capture:** Real-time 48kHz stereo system audio streaming (requires Android 10+).
+- **Touch Control:** Remote touch input redirection back to the Android device.
+- **Low Latency Audio:** Integrated ring buffer to reduce latency and prevent audio crackling.
+- **Dynamic Resolution:** Adapts output resolution dynamically based on device size.
 
-### 📊 Feature Overview
+### Mode Matrix
 
-| Feature             | Android App | Works on Lock Screen |
-| ------------------- | ----------- | -------------------- |
-| Screen Streaming | ✅ Yes       | ❌ No                 |
-| Internal Audio   | ✅ Yes       | ✅ Yes                |
-| Full Control     | ✅ Yes       | ❌ No                 |
+| Mode | Screen Mirroring | Internal Audio | Remote Control | Works on Lock Screen |
+| :--- | :---: | :---: | :---: | :---: |
+| Screen + Control + Audio | Yes | Yes | Yes | No |
+| Audio-Only | No | Yes | No | Yes |
 
+## Architecture
 
-### ✨ What Makes It Special?
+1. **Android Side:** Captures display buffer via MediaProjection and audio via AudioPlaybackCapture. Video is encoded using H.264 (MediaCodec). Packets are sent over WebSockets.
+2. **Windows Side:** Connects via WebSocket, decodes video with FFmpeg, plays audio via PortAudio, and renders using SDL2. Input events on the SDL window are sent back to the Android Accessibility Service.
 
-App-Scrcpy is built for **performance**, **stability**, and **real control**.
+## Windows Hotkeys
 
-You get:
-
-✔ Real-time screen streaming (H.264 hardware encoded)
-✔ Internal system audio streaming (48kHz stereo)
-✔ Full touch control
-✔ Adaptive bitrate for smooth performance
-✔ Audio-only mode
-
-All over your **local Wi-Fi network**.
-
----
-
-### 🧠 How It Works (Simple Version)
-
-The Android app:
-
-* Captures your screen using **MediaProjection**
-* Captures internal audio (Android 10+)
-* Encodes video using hardware H.264
-* Hosts a lightweight WebSocket server
-
-The Windows app:
-
-* Connects using your phone’s IP
-* Decodes video with FFmpeg
-* Plays audio using PortAudio
-* Renders video with SDL2
-* Sends mouse & keyboard input back to your phone
-
-Everything runs in real time.(*Depend on your wifi speed & Device performance)
-
----
-
-### ⌨ Windows Hotkeys
-
-| Shortcut | Action            |
-| -------- | ----------------- |
+| Hotkey | Action |
+| :--- | :--- |
 | Ctrl + F | Toggle Fullscreen |
-| Ctrl + W | Toggle Border     |
-| Ctrl + S | Open Settings     |
-| Ctrl + B | Go Back     |
-| Ctrl + R | Open Recent Apps     |
-| Ctrl + H | Go to Home Screen     |
+| Ctrl + W | Toggle Window Border (Frameless) |
+| Ctrl + S | Open Settings |
+| Ctrl + B | Go Back |
+| Ctrl + R | Open Recent Apps |
+| Ctrl + H | Go to Home Screen |
+
+## Requirements
+
+### Android
+- Android 10+ (for audio capture)
+- Accessibility permission (for remote control)
+- Screen capture permission
+
+### Windows
+- Windows 10 or 11
+- Devices must be on the same local network
+
+## Installation & Usage
+
+1. Install the APK on your Android device.
+2. Enable the Accessibility Service when prompted.
+3. Note the local IP address displayed on the app screen.
+4. Run the Windows GUI client or `android_av_streamer.exe` from the CMD package.
+5. Enter the phone IP and click Connect.
+6. Accept the screen recording permission prompt on the phone.
 
 ---
 
-### Lock-Free Audio Engine
-
-Audio uses a real-time ring buffer to prevent glitches and robotic sound.
-
-### Adaptive Bitrate
-
-If Wi-Fi slows down, quality adjusts automatically to keep the stream smooth.
-
----
-
-### Android Requirements
-
-* Android 10+ (for audio capture)
-* Accessibility permission (for remote control)
-* Screen capture permission
-
-
-### Windows Requirements
-
-* Windows 10 or newer
-* Same local network as your phone
-* No installation required (portable app)
-
----
-
-### 🚀 How To Use
-
-1. Install Android APK
-2. Grant required permissions
-3. Note your phone’s local IP
-4. Open Windows app
-5. Enter IP → Click Connect
-
-That’s it.
-
-Your screen appears in seconds.
-
----
-
-
-
-### 💡 Why App-Scrcpy?
-
-Because it’s:
-
-* Lightweight
-* Fast
-* Clean architecture
-* Built from scratch
-* Designed for stability
-* Made for real usage
-
----
-### Sample Images
-
-<img src="data/README_file/win_android.png" alt="win_android" width="500">
-
-
----
-
-**Built by Shrey**
-GitHub: [https://github.com/Shrey113/App-Scrcpy](https://github.com/Shrey113/App-Scrcpy)
-Website: [https://shrey113.github.io/App-Scrcpy/](https://shrey113.github.io/App-Scrcpy/)
-
+**Developed by Shrey**
+- GitHub: [Shrey113/App-Scrcpy](https://github.com/Shrey113/App-Scrcpy)
+- Web: [shrey113.github.io/App-Scrcpy/](https://shrey113.github.io/App-Scrcpy/)
